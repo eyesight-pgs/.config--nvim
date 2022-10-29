@@ -1,0 +1,28 @@
+syntax on
+set number relativenumber
+set tabstop=2 shiftwidth=2
+set expandtab
+set smartindent
+set splitright splitbelow
+
+let mapleader = ";"
+" set clipboard+=unnamedplus
+vnoremap <leader>y "+y
+nnoremap <leader>p "+p
+inoremap <leader>p <Esc>"+pa
+
+nnoremap ;; <Esc>
+inoremap ;; <Esc>
+vnoremap ;; <Esc>
+nnoremap <leader>s :w<cr>
+nnoremap <leader>w :q
+inoremap <leader>s <Esc>:w<cr>a
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>F :Rg<cr>
+
+call plug#begin()
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+call plug#end()
+
+
