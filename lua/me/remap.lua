@@ -57,6 +57,7 @@ nnoremap("<leader>mp", ":MarkdownPreviewToggle<CR>")
 nnoremap("<leader>te", ":term<CR>")
 inoremap("<leader>te", ":term<CR>")
 tnoremap("<leader>a", "<C-\\><C-n>")
+tnoremap("<leader>e", "<Esc>")
 
 -- tabs
 nnoremap("<Leader>nt", ":tabnew<CR>") -- new tab
