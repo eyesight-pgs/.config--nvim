@@ -45,6 +45,9 @@ return require('packer').startup(function()
   use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
   use 'saadparwaiz1/cmp_luasnip'
 
+  -- comments
+  use({"https://github.com/tpope/vim-commentary"})
+
   -- Telescope
   use 'sharkdp/fd'
   use {
