@@ -14,6 +14,8 @@ nnoremap("<leader>pv", "<cmd>Ex<CR>")
 vnoremap("<leader>y", "\"+y")
 nnoremap("<leader>p", "\"+p")
 inoremap("<leader>p", "<Esc>\"+pa")
+tnoremap("<leader>y", "\"+y")
+tnoremap("<leader>p", "\"+p")
 
 
 nnoremap("<leader>w", ":w<cr>")
