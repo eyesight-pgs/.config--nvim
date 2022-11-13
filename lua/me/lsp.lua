@@ -13,6 +13,14 @@ local function lspShortcuts()
   vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", {buffer=0})
 end
 
+require('lspconfig').clangd.setup{
+  capabilities = capabilities,
+  on_attach = function()
+    print"conneceted to clangd"
+    lspShortcuts()
+  end,
+}
+
 require('lspconfig').gopls.setup{
   capabilities = capabilities,
   on_attach = function()
