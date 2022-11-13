@@ -1,4 +1,6 @@
 
+local result = vim.api.nvim_exec(
+[[
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
 let g:mkdp_auto_start = 0
@@ -35,7 +37,7 @@ let g:mkdp_open_ip = ''
 " valid: `/path/with\ space/xxx`
 " invalid: `/path/with\\ space/xxx`
 " default: ''
-let g:mkdp_browser = ''
+let g:mkdp_browser = '/usr/local/bin/surf'
 
 " set to 1, echo preview page url in command line when open preview page
 " default is 0
@@ -61,40 +63,45 @@ let g:mkdp_browserfunc = ''
 " content_editable: if enable content editable for preview page, default: v:false
 " disable_filename: if disable filename header for preview page, default: 0
 let g:mkdp_preview_options = {
-    \ 'mkit': {},
-    \ 'katex': {},
-    \ 'uml': {},
-    \ 'maid': {},
-    \ 'disable_sync_scroll': 0,
-    \ 'sync_scroll_type': 'middle',
-    \ 'hide_yaml_meta': 1,
-    \ 'sequence_diagrams': {},
-    \ 'flowchart_diagrams': {},
-    \ 'content_editable': v:false,
-    \ 'disable_filename': 0,
-    \ 'toc': {}
-    \ }
+  \ 'mkit': {},
+  \ 'katex': {},
+  \ 'uml': {},
+  \ 'maid': {},
+  \ 'disable_sync_scroll': 0,
+  \ 'sync_scroll_type': 'middle',
+  \ 'hide_yaml_meta': 1,
+  \ 'sequence_diagrams': {},
+  \ 'flowchart_diagrams': {},
+  \ 'content_editable': v:false,
+  \ 'disable_filename': 0,
+  \ 'toc': {}
+  \ }
 
-" use a custom markdown style must be absolute path
-" like '/Users/username/markdown.css' or expand('~/markdown.css')
-let g:mkdp_markdown_css = ''
+  " use a custom markdown style must be absolute path
+  " like '/Users/username/markdown.css' or expand('~/markdown.css')
+  let g:mkdp_markdown_css = ''
 
-" use a custom highlight style must absolute path
-" like '/Users/username/highlight.css' or expand('~/highlight.css')
-let g:mkdp_highlight_css = ''
+  " use a custom highlight style must absolute path
+  " like '/Users/username/highlight.css' or expand('~/highlight.css')
+  let g:mkdp_highlight_css = ''
 
-" use a custom port to start server or empty for random
-let g:mkdp_port = ''
+  " use a custom port to start server or empty for random
+  let g:mkdp_port = ''
 
-" preview page title
-" ${name} will be replace with the file name
-let g:mkdp_page_title = '「${name}」'
+  " preview page title
+  " ${name} will be replace with the file name
+  let g:mkdp_page_title = '「${name}」'
 
-" recognized filetypes
-" these filetypes will have MarkdownPreview... commands
-let g:mkdp_filetypes = ['markdown']
+  " recognized filetypes
+  " these filetypes will have MarkdownPreview... commands
+  let g:mkdp_filetypes = ['markdown']
 
-" set default theme (dark or light)
-" By default the theme is define according to the preferences of the system
-let g:mkdp_theme = 'dark'
+  " set default theme (dark or light)
+  " By default the theme is define according to the preferences of the system
+  let g:mkdp_theme = 'dark'
+
+
+  ]],
+  true -- return result
+  )
 
