@@ -45,7 +45,6 @@ require('lspconfig').html.setup{
   end,
 }
 
-
 require('lspconfig').sumneko_lua.setup{
   capabilities = capabilities,
   on_attach= function()
@@ -54,5 +53,11 @@ require('lspconfig').sumneko_lua.setup{
   end,
 }
 
-
+require('lspconfig').phpactor.setup{
+  capabilities = capabilities,
+  on_attach= function()
+    print("conneceted to phpactor")
+    lspShortcuts()
+  end,
+}
 

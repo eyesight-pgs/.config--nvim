@@ -27,9 +27,10 @@ inoremap("<leader>ew", "<Esc>:NvimTreeClose<CR>")
 inoremap("<leader>er", "<Esc>:NvimTreeFindFile<CR>")
 
 -- comment current line
-nnoremap("<leader>/", "I// <Esc>")
-inoremap("<leader>/", "<C-o>0// ")
-
+-- corrently vim commentary plugin is used,
+-- which by default provides few shortcuts:
+-- gc<motion> - (un)comment based on motion
+-- gcc - (un)comment single line
 
 nnoremap("<leader>ee", ":NvimTreeFocus<CR>")
 nnoremap("<leader>ew", ":NvimTreeClose<CR>")
@@ -90,6 +91,7 @@ vim.keymap.set('n', 'fh', builtin.help_tags, {})
 
 -- source current file
 nnoremap("<leader><leader>x", ":source %<CR>")
+nnoremap("<leader><leader>X", ":source $XDG_CONFIG_HOME/nvim/init.lua<CR>")
 
 
 -- move between splits
@@ -114,7 +116,17 @@ inoremap("<C-h>", "zh")
 -- nnoremap("<C-<CR>>","o<Esc>k")
 
 
+-- DAP
+nnoremap("<F5>", ":lua require 'dap'.continue()<CR>")
+nnoremap("<F10>", ":lua require 'dap'.step_over()<CR>")
+nnoremap("<F11>", ":lua require 'dap'.set_into()<CR>")
+nnoremap("<F12>", ":lua require 'dap'.step_out()<CR>")
+nnoremap("<leader>b", ":lua require 'dap'.toggle_breakpoint()<CR>")
+nnoremap("<leader>B", ":lua require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+nnoremap("<leader>lp", ":lua require 'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
+nnoremap("<leader>dr", ":lua require 'dap'.repl.open()<CR>")
 
+nnoremap("<leader>du", ":lua require 'dapui'.toggle()<CR>")
 
-
+nnoremap("<leader>da", ":lua require 'me.dap_helper'.attach()<CR>")
 

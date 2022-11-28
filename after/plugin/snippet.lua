@@ -86,5 +86,14 @@ ls.add_snippets("lua", {
   }),
 })
 
+-- for typescript
+ls.add_snippets("typescript", {
+  s("ln", {
+    t("console.log(`-------------------- "),
+    i(0),
+    t(" --------------------`);")
+
+  })
+})
 
 
