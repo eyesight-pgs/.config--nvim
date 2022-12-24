@@ -3,19 +3,29 @@ local vnoremap = require("me.keymap").vnoremap
 local inoremap = require("me.keymap").inoremap
 local tnoremap = require("me.keymap").tnoremap
 
+-- use following help section to know the key codes
+-- :help key-notation
+
 nnoremap("<leader>a", "<Esc>")
 inoremap("<leader>a", "<Esc>")
 vnoremap("<leader>a", "<Esc>")
 
-inoremap("<leader>s", ";")
+inoremap("<leader>ss", ";")
 
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
 
+nnoremap("<leader>y", "\"+y") -- not working
 vnoremap("<leader>y", "\"+y")
 nnoremap("<leader>p", "\"+p")
 inoremap("<leader>p", "<Esc>\"+pa")
 tnoremap("<leader>y", "\"+y")
 tnoremap("<leader>p", "\"+p")
+nnoremap("Y", "yg$") -- yank till end of line
+
+nnoremap("<C-d>", "<C-d>zz") -- keep cursor in middle
+nnoremap("<C-u>", "<C-u>zz") -- keep cursor in middle
+nnoremap("n", "nzzzv") -- during search, next item - keep cursor in the middle
+nnoremap("N", "Nzzzv") -- during search, next item - keep cursor in the middle
 
 
 nnoremap("<leader>w", ":w<cr>")
@@ -41,10 +51,41 @@ nnoremap("<leader>l", "<C-w>v")
 nnoremap("<leader>j", "<C-w>s")
 
 -- split resize
-nnoremap("<A-h>", "<C-w><")
-nnoremap("<A-l>", "<C-w>>")
-nnoremap("<A-j>", "<C-w>-")
-nnoremap("<A-k>", "<C-w>+")
+nnoremap("<A-H>", "<C-w><")
+nnoremap("<A-L>", "<C-w>>")
+nnoremap("<A-J>", "<C-w>-")
+nnoremap("<A-K>", "<C-w>+")
+
+-- move between splits
+nnoremap("<A-h>", "<C-w>h")
+nnoremap("<A-j>", "<C-w>j")
+nnoremap("<A-k>", "<C-w>k")
+nnoremap("<A-l>", "<C-w>l")
+
+-- move view without moving cursor
+-- nnoremap("<C-j>", "<C-e>")
+-- nnoremap("<C-k>", "<C-y>")
+-- inoremap("<C-j>", "<Esc><C-e>a")
+-- inoremap("<C-k>", "<Esc><C-y>a")
+
+-- horizontal scroll
+nnoremap("L", "zl")
+nnoremap("H", "zh")
+-- nnoremap("J", "<C-e>")
+-- nnoremap("K", "<C-y>")
+
+-- move selected line up/down
+vnoremap("J", ":m '>+1<CR>gv=gv")
+vnoremap("K", ":m '<-2<CR>gv=gv")
+nnoremap("J", "v:m '>+1<CR>gv=gv<Esc>")
+nnoremap("K", "v:m '<-2<CR>gv=gv<Esc>")
+
+
+-- nnoremap("J", "mzJ`z") -- keeps cursor at the begining
+
+-- control enter should add one blank line bellow
+nnoremap("<C-Return>", "o<Esc>k")
+
 
 -- debug
 nnoremap("<F9>", ":lua require('dap').toggle_breakpoint()<CR>")
@@ -81,40 +122,10 @@ nnoremap("<leader>taf", ":tabfirst<CR>") -- first
 -- maximize current split
 nnoremap("<A-m>", "<C-w><C-_><C-w><C-|>")
 
--- Telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', 'ff', builtin.find_files, {})
-vim.keymap.set('n', 'fg', builtin.live_grep, {})
-vim.keymap.set('n', 'fb', builtin.buffers, {})
-vim.keymap.set('n', 'fh', builtin.help_tags, {})
-
 
 -- source current file
 nnoremap("<leader><leader>x", ":source %<CR>")
 nnoremap("<leader><leader>X", ":source $XDG_CONFIG_HOME/nvim/init.lua<CR>")
-
-
--- move between splits
--- nnoremap("<C-h>", "<C-w>h")
--- nnoremap("<C-j>", "<C-w>j")
--- nnoremap("<C-k>", "<C-w>k")
--- nnoremap("<C-l>", "<C-w>l")
-
--- move view without moving cursor
--- nnoremap("<C-j>", "<C-e>")
--- nnoremap("<C-k>", "<C-y>")
--- inoremap("<C-j>", "<Esc><C-e>a")
--- inoremap("<C-k>", "<Esc><C-y>a")
-
--- horizontal scroll
-nnoremap("<C-l>", "zl")
-nnoremap("<C-h>", "zh")
-inoremap("<C-l>", "zl")
-inoremap("<C-h>", "zh")
-
--- control enter should add one blank line bellow
--- nnoremap("<C-<CR>>","o<Esc>k")
-
 
 -- DAP
 nnoremap("<F5>", ":lua require 'dap'.continue()<CR>")
@@ -127,6 +138,26 @@ nnoremap("<leader>lp", ":lua require 'dap'.set_breakpoint(nil, nil, vim.fn.input
 nnoremap("<leader>dr", ":lua require 'dap'.repl.open()<CR>")
 
 nnoremap("<leader>du", ":lua require 'dapui'.toggle()<CR>")
-
 nnoremap("<leader>da", ":lua require 'me.dap_helper'.attach()<CR>")
 
+
+-- format buffer
+nnoremap("<A-F>", function()
+  vim.lsp.buf.format()
+end)
+
+
+-- nnoremap("<leader>cn", vim.cmd.cnext)
+-- nnoremap("<leader>cn", vim.cmd.cnext)
+-- nnoremap("<leader>lp", vim.cmd.lprev)
+-- nnoremap("<leader>lp", vim.cmd.lprev)
+--
+nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+nnoremap("<leader>x", "<cmd>!chmod +x %<CR>")
+nnoremap("<leader>X", "<cmd>!chmod -x %<CR>")
+
+
+-- 1
+-- 2
+-- 3
+-- 4

@@ -8,11 +8,33 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- Color scheme
-  use 'folke/tokyonight.nvim'
-  
+  -- use 'folke/tokyonight.nvim'
+
+  -- use({
+  --   'rose-pine/neovim',
+  --   as = 'rose-pine',
+  --   config = function()
+  --     vim.cmd('colorscheme rose-pine')
+  --   end
+  -- })
+
+  use {
+    'tomasiser/vim-code-dark',
+    as = codedark,
+    config = function()
+      vim.cmd('colorscheme codedark')
+    end
+  }
+
   -- Fuzzy Finder
   -- use '/usr/bin/fzf'
   use 'junegunn/fzf.vim'
+
+  -- harpoon by ThePrimogen
+  use 'ThePrimeagen/harpoon'
+
+  -- goto word
+  -- use 'ggandor/leap.nvim';
 
   -- File exporer
   use {
@@ -28,6 +50,7 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  use 'nvim-treesitter/playground'
 
   -- LSP - Language Servers
   use { "williamboman/mason.nvim" } -- to install LSP servers
@@ -73,6 +96,29 @@ return require('packer').startup(function()
 
   -- JSON5
   -- use 'Joakker/lua-json5' -- not working
+  
+  -- undo tree
+  use 'mbbill/undotree'
+
+  -- git
+  use 'tpope/vim-fugitive'
 
 end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

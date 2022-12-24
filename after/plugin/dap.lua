@@ -68,19 +68,66 @@ dap.configurations.typescript = {
 -- adapter
 dap.adapters.my_php_adapter = {
   type = 'executable',
-  command = 'node',
-  args = { '/.local/share/nvim/mason/packages/php-debug-adapter/php-debug-adapter' }
+  command = '$HOME/.local/share/nvim/mason/packages/php-debug-adapter/php-debug-adapter',
 }
 -- configure
 dap.configurations.php = {
   {
     type = 'my_php_adapter',
     request = 'launch',
-    name = 'Listen for Xdebug',
+    name = 'waiting for Xdebug to ping me',
     port = 9003
   }
 }
 
+
+-- C / C++ / Rust
+dap.adapters.cppdbg= {
+  id = 'cppdbg',
+  type = 'executable',
+  command = '$HOME/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+}
+dap.configurations.cpp = {
+  {
+    name = "cpp: launch file",
+    type = "cppdbg",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopAtEntry = true,
+    setupCommands = {
+      {
+        text = '-enable-pretty-printing',
+        description =  'enable pretty printing',
+        ignoreFailures = false
+      },
+    },
+  },
+  {
+    name = 'cpp: attach to gdbserver :1234',
+    type = 'cppdbg',
+    request = 'launch',
+    MIMode = 'gdb',
+    miDebuggerServerAddress = 'localhost:1234',
+    miDebuggerPath = '/usr/bin/gdb',
+    cwd = '${workspaceFolder}',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    setupCommands = {
+      {
+        text = '-enable-pretty-printing',
+        description =  'enable pretty printing',
+        ignoreFailures = false
+      },
+    },
+  },
+}
+
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
 
 
 
