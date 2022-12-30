@@ -22,7 +22,12 @@ vim.opt.incsearch = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+
+local home_env_name = "HOME"
+if vim.loop.os_uname().sysname == 'Windows_NT' then
+  home_env_name = "USERPROFILE"
+end
+vim.opt.undodir = os.getenv(home_env_name) .. "/.vim/undodir"
 vim.opt.undofile = true
 
 vim.opt.termguicolors = true
