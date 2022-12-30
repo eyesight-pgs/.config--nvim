@@ -102,6 +102,7 @@ return require('packer').startup(function()
 
   -- git
   use 'tpope/vim-fugitive'
+  use 'airblade/vim-gitgutter'
 
 end)
 
