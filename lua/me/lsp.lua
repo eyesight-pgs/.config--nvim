@@ -1,7 +1,7 @@
 local capabilities = require("me/completion").capabilities
 
 local function lspShortcuts()
-  vim.keymap.set("n", "<C-Space", vim.lsp.buf.hover, {buffer = 0}) -- 0 = current buffer
+  vim.keymap.set("n", "<C-Space>", vim.lsp.buf.hover, {buffer = 0}) -- 0 = current buffer
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer = 0})
   vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, {buffer = 0})
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer = 0})
@@ -61,10 +61,10 @@ require('lspconfig').phpactor.setup{
   end,
 }
 
-require('lspconfig').intelephese.setup{
+require('lspconfig').intelephense.setup{
   capabilities = capabilities,
   on_attach= function()
-    print("conneceted to intelephese")
+    print("conneceted to intelephense")
     lspShortcuts()
   end,
 }
