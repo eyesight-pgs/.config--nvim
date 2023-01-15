@@ -157,7 +157,10 @@ nnoremap("<leader>x", "<cmd>!chmod +x %<CR>")
 nnoremap("<leader>X", "<cmd>!chmod -x %<CR>")
 
 
--- 1
--- 2
--- 3
--- 4
+-- text objects
+-- ...
+
+
+
+
+
