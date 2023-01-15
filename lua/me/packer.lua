@@ -30,13 +30,13 @@ return require('packer').startup(function()
   -- use '/usr/bin/fzf'
   use 'junegunn/fzf.vim'
 
-  -- harpoon by ThePrimogen
+  -- harpoon by ThePrimeagen
   use 'ThePrimeagen/harpoon'
 
   -- goto word
   -- use 'ggandor/leap.nvim';
 
-  -- File exporer
+  -- File explorer
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -102,7 +102,13 @@ return require('packer').startup(function()
 
   -- git
   use 'tpope/vim-fugitive'
-  use 'lewis6991/gitsigns.nvim'
+  use {
+    'lewis6991/gitsigns.nvim',
+    tag = 'release'
+  }
+
+  -- smart selection (expand/shrink selection)
+  use 'terryma/vim-expand-region' -- not working as expected
 
 end)
 
