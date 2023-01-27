@@ -1,3 +1,5 @@
+local nnoremap =  require("me.keymap").nnoremap
+
 require('gitsigns').setup {
   signs = {
     add          = { text = '│' },
@@ -40,3 +42,22 @@ require('gitsigns').setup {
     enable = false
   },
 }
+
+nnoremap("<leader>hpp", "<cmd>Gitsigns preview_hunk<CR>")
+nnoremap("<leader>hpi", "<cmd>Gitsigns preview_hunk_inline<CR>")
+nnoremap("<leader>hpd", "<cmd>Gitsigns toggle_deleted<CR>")
+nnoremap("<leader>hf", "<cmd>Gitsigns refresh<CR>")
+nnoremap("<leader>hl", "<cmd>Gitsigns select_hunk<CR>")
+nnoremap("<leader>ho", "<cmd>Gitsigns show<CR>")
+nnoremap("<leader>hd", "<cmd>Gitsigns diffthis<CR>")
+nnoremap("<leader>hw", "<cmd>Gitsigns toggle_word_diff<CR>")
+nnoremap("<leader>hr", "<cmd>Gitsigns reset_hunk<CR>")
+nnoremap("<leader>hR", "<cmd>Gitsigns reset_buffer<CR>")
+nnoremap("<leader>hh", "<cmd>Gitsigns next_hunk<CR>")
+nnoremap("<leader>hH", "<cmd>Gitsigns prev_hunk<CR>")
+nnoremap("<leader>hb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
+nnoremap("<leader>hss", "<cmd>Gitsigns stage_hunk<CR>")
+nnoremap("<leader>hsu", "<cmd>Gitsigns undo_stage<CR>")
+nnoremap("<leader>hsb", "<cmd>Gitsigns stage_buffer<CR>")
+
+
