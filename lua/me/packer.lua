@@ -96,7 +96,7 @@ return require('packer').startup(function()
 
   -- JSON5
   -- use 'Joakker/lua-json5' -- not working
-  
+
   -- undo tree
   use 'mbbill/undotree'
 
@@ -106,6 +106,7 @@ return require('packer').startup(function()
     'lewis6991/gitsigns.nvim',
     tag = 'release'
   }
+  use 'f-person/git-blame.nvim'
 
   -- smart selection (expand/shrink selection)
   use 'terryma/vim-expand-region' -- not working as expected
