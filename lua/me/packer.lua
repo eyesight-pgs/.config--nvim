@@ -111,6 +111,12 @@ return require('packer').startup(function()
   -- smart selection (expand/shrink selection)
   use 'terryma/vim-expand-region' -- not working as expected
 
+  -- GUI
+  use 'kamykn/popup-menu.nvim' -- required by spelunker
+
+  -- spell check (supports camelcase)
+  use 'kamykn/spelunker.vim'
+
 end)
 
 

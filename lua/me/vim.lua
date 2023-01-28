@@ -1,6 +1,6 @@
 vim.api.nvim_exec(
 [[
-set spell
+set nospell
 
 " word wrap more excellently
 nnoremap <expr> j v:count ? 'j' : 'gj'
