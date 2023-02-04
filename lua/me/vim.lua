@@ -21,6 +21,12 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " open panes same location as tmux
 set splitbelow
 set splitright
+
+
+" my-grep
+command! -nargs=+ -complete=dir -bar Grep lua require'me.my-grep'.asyncGrep(<q-args>)
+
+
 ]],
 false
 )
