@@ -117,6 +117,9 @@ return require('packer').startup(function()
   -- spell check (supports camelcase)
   use 'kamykn/spelunker.vim'
 
+  -- align markdown table
+  use 'junegunn/vim-easy-align'
+
 end)
 
 
