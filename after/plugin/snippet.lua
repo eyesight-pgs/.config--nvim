@@ -97,3 +97,18 @@ ls.add_snippets("typescript", {
 })
 
 
+-- for php
+ls.add_snippets("php", {
+  s("xp", {
+    t("print_r("),
+    i(1),
+    t(");"),
+    t("\n");
+    t("exit;"),
+  }),
+})
+
+
+
+
+
