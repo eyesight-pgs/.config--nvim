@@ -68,6 +68,9 @@ return require('packer').startup(function()
   use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
   use 'saadparwaiz1/cmp_luasnip'
 
+  -- formatter
+  use({"ckipp01/stylua-nvim", run = "cargo install stylua"})
+
   -- comments
   use({"https://github.com/tpope/vim-commentary"})
 
