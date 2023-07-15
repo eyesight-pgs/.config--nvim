@@ -71,6 +71,10 @@ nnoremap("<A-l>", "<C-w>l")
 -- horizontal scroll
 nnoremap("L", "zl")
 nnoremap("H", "zh")
+vnoremap("L", "zl")
+vnoremap("H", "zh")
+-- tnoremap("L", "zl") -- can not type L in terminal with this
+-- tnoremap("H", "zh") -- can not type H in terminal with this
 -- nnoremap("J", "<C-e>")
 -- nnoremap("K", "<C-y>")
 
